@@ -1,12 +1,24 @@
-<div id="<%= dom_id room %>" data-controller="messages">
-  <%= turbo_stream_from dom_id(room) %>
-  <h1><%= room.name %></h1>
-  <div id="messages" data-messages-target="container">
-    <% @messages&.each do |message|%>
-      <%= render "messages/message", message: message %>
-    <% end %>
+<div class="row">
+  <div class="col-lg-10 ">
+    <div id="<%= dom_id room %>" data-controller="messages">
+      <%= turbo_stream_from dom_id(room) %>
+      <nav class="navbar bg-light">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand fw-bold h1" ><%= room.name %></a>
+          <a class="navbar-brand fw-thin"><%= room.messages.count == 0 ? "No New Message" : pluralize(room.messages.count, 'message') %></a>
+        </div>
+      </nav>
+      <div id="messages" data-messages-target="container">
+        <% @messages&.each do |message|%>
+          <%= render "messages/message", message: message, user: current_user %>
+        <% end %>
+      </div>
+      <div id="new_message">
+        <%= render 'messages/form', room: room%>
+      </div>
+    </div>
   </div>
-  <div id="new_message">
-    <%= render 'messages/form', room: room%>
+  <div class="col-lg-2">
+    <%= render 'rooms/sidebar'%>
   </div>
 </div>

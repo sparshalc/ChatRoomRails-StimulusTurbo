@@ -3,12 +3,24 @@
 
 
 #messages{
-    height: 400px;
+    height: 600px;
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 2em;
-    background-color: #ddd;
-    border: 1px solid #aaa;
+    background-color: #f4f4f4;
+    border: 1px solid #e0e0e0;
     border-radius: 3px;
     margin: 1em;
+    
+    .row{
+        background-color: #0078ff;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        width: auto;
+        small{
+            color: white !important;
+        }
+    }
 }

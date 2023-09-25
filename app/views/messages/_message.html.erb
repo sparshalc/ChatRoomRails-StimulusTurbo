@@ -1,5 +1,6 @@
 <%= turbo_frame_tag(dom_id(message)) do%>
   <div class="row">
-    <%= "#{message.user.email.split('@')[0].capitalize}: #{message.body}"%>
+    <h4><%= "#{message.body}"%></h4>
+    <small class="text-sm text-muted ">   <%= "#{message.user.email.split('@')[0].capitalize}" %> - <%= time_ago_in_words(message.created_at) + ' ago'%> </small>
   </div>
 <% end %>

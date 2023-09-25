@@ -1,0 +1,30 @@
+<div class="d-flex flex-column flex-shrink-0 bg-light" style="height: auto;">
+  <a href="/" class="d-block mt-5 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+    <svg class="bi" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <span class="visually-hidden">Icon-only</span>
+  </a>
+  <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+    <li class="nav-item">
+      <h2>
+        <i class="bi bi-envelope"></i>
+        <%= @room.name %></h2>
+      <p class="text-muted">Created <%= time_ago_in_words(@room.created_at)+ ' ago' %></p>
+    </a>
+  </li>
+  <li class="mt-2">
+    <%= button_to 'Delete Room', room_path(@room), method: :delete, class: 'btn btn-danger btn-block'%>
+  </li>
+  <li class="mt-3">
+    <%= link_to 'Edit Room', edit_room_path(@room), class: 'btn btn-success btn-block'%>
+  </li>
+  <li class="mt-3">
+    <%= link_to 'Return Home', root_path, class: 'btn btn-success btn-block'%>
+  </li>
+  <li class="mt-5">
+    <i class="bi bi-person"></i>
+    <p class="text-muted">
+      Users are responsible for safeguarding their personal information and refraining from sharing sensitive data, such as contact details or financial information, within the app. We are committed to protecting your privacy; 
+    </p>
+  </li>
+</ul>
+</div>
